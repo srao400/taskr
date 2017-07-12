@@ -3,7 +3,9 @@ class TasksController < ApplicationController
   before_action :set_task, only:[:edit, :show, :destroy, :update]
 
   def index
-    @tasks = current_user.tasks
+    @to_do = current_user.tasks.where(state: 'to_do')
+    @doing = current_user.tasks.where(state: 'doing')
+    @done = current_user.tasks.where(state: 'done')
   end
 
   def new
@@ -48,7 +50,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :state)
   end
 
 end

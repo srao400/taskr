@@ -8,6 +8,7 @@
 
 <%= simple_form_for @task do |f| %>
   <%= f.input :content, required: true%>
+  <%= f.input :state%>
 
   <%= f.button :submit, class: 'btn btn-primary' %>
 
