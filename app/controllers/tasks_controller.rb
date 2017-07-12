@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_task, only:[:edit, :show, :destroy, :update]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def new
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
       if @task.save
         flash[:notice] = "Task was successfully saved"
       redirect_to task_path(@task)
