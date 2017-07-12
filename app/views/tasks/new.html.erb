@@ -1,0 +1,8 @@
+<h2> New Task </h2>
+
+<%= simple_form_for @task do |f| %>
+  <%= f.input :content, label: false, placeholder: 'Enter task here'%>
+
+  <%= f.button :submit, class: 'btn btn-primary' %>
+
+<% end %>
