@@ -1,57 +1,69 @@
-<h2>To Do</h2>
 
 <p><%= link_to 'New Task', new_task_path %></p>
+<!-- <div class='container-fluid to_do .col-sm-3'> -->
+  <h2>To Do</h2>
 <table>
   <!-- <th><strong>Id.</strong><th> -->
   <!-- <th><strong>Id</strong><th> -->
   <th>Content<th>
   <th>State<th>
+    <th colspan = "6"></th>
     <% @to_do.each do |task| %>
     <tr>
       <!-- <td><%= task.id %></td> -->
       <td><%= task.content %></td>
       <td><%= task.state %></td>
-      <td><%= link_to '  Show  |', task_path(task)   %></td>
-      <td><%= link_to '  Edit  |', edit_task_path(task)   %></td>
-      <td><%= link_to '  Delete', task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete this task?"} %></td>
+      <td><%= link_to 'Show', task_path(task)   %></td>
+      <td><%= link_to 'Edit', edit_task_path(task)   %></td>
+      <td><%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete this task?"} %></td>
+      <td><%= link_to 'Mark as Doing', change_task_path(task, state: "doing"), method: :put %></td>
     </tr>
     <% end %>
 </table>
+<!-- </div> -->
 
+<!-- <div class='container-fluid doing .col-sm-3'> -->
 <h2>Doing</h2>
-
 <table>
   <!-- <th><strong>Id.</strong><th> -->
   <!-- <th><strong>Id</strong><th> -->
   <th>Content<th>
   <th>State<th>
+    <th colspan = "7"></th>
     <% @doing.each do |task| %>
     <tr>
       <!-- <td><%= task.id %></td> -->
       <td><%= task.content %></td>
       <td><%= task.state %></td>
-      <td><%= link_to '  Show  |', task_path(task)   %></td>
-      <td><%= link_to '  Edit  |', edit_task_path(task)   %></td>
-      <td><%= link_to '  Delete', task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete this task?"} %></td>
+      <td><%= link_to 'Show', task_path(task)   %></td>
+      <td><%= link_to 'Edit', edit_task_path(task)   %></td>
+      <td><%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete this task?"} %></td>
+      <td><%= link_to 'Mark as to do', change_task_path(task, state: 'to_do'), method: :put %></td>
+      <td><%= link_to 'Mark as done', change_task_path(task, state: 'done'), method: :put %></td>
+
     </tr>
     <% end %>
 </table>
+<!-- </div> -->
 
+<!-- <div class='container-fluid done .col-sm-3'> -->
 <h2>Done</h2>
-
 <table>
   <!-- <th><strong>Id.</strong><th> -->
   <!-- <th><strong>Id</strong><th> -->
   <th>Content<th>
   <th>State<th>
+    <th colspan = "6"></th>
     <% @done.each do |task| %>
     <tr>
       <!-- <td><%= task.id %></td> -->
       <td><%= task.content %></td>
       <td><%= task.state %></td>
-      <td><%= link_to '  Show  |', task_path(task)   %></td>
-      <td><%= link_to '  Edit  |', edit_task_path(task)   %></td>
-      <td><%= link_to '  Delete', task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete this task?"} %></td>
+      <td><%= link_to 'Show', task_path(task)   %></td>
+      <td><%= link_to 'Edit', edit_task_path(task)   %></td>
+      <td><%= link_to 'Delete', task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete this task?"} %></td>
+      <td><%= link_to 'Mark as doing', change_task_path(task, state: 'doing'), method: :put %></td>
     </tr>
     <% end %>
 </table>
+<!-- </div> -->

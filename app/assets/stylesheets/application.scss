@@ -25,3 +25,17 @@
 .errors {
   color: red;
 }
+
+.to_do, .doing, .done {
+  border: thin dashed green;
+
+}
+.to_do {
+  float: left;
+}
+.doing{
+  float: center;
+}
+.done {
+  float: right;
+}
